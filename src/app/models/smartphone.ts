@@ -1,4 +1,5 @@
 export class Smartphone {
+    _id?: string;
     nombre!: string;
     marca!: string;
     modelo!: string;
