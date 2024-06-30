@@ -24,22 +24,29 @@ export class SmartphoneService {
   }
 
   //Método para obtener todos los Smartphones
-  getSmartphone(id: string): Observable<Smartphone> {
-    let url=`${this.baseUri}/add/${id}`;
-    return this.http.get<Smartphone>(url)
-  }
-
-  //Método para obtener Smartphone por id
   getSmartphones(){
-    let url=`${this.baseUri}/smatphone`;
+    let url=`${this.baseUri}/smatphones`;
     return this.http.get(url);
   }
 
+   //Método para obtener Smartphone por id
+  getSmartphone(id: string): Observable<Smartphone> {
+    let url=`${this.baseUri}/get/${id}`;
+    return this.http.get<Smartphone>(url)
+  }
+
+
   //Método para actualizar
-  updateSmartphones(){}
+  updateSmartphone(id: string, data: Smartphone): Observable<Smartphone>{
+    let url = `${this.baseUri}/update/${id}`;
+    return this.http.put<Smartphone>(url,data);
+  }
 
   //Método para eliminar Smartphone
-  deleteSmartphone(){}
+  deleteSmartphone(id: string): Observable<any>{
+    let url = `${this.baseUri}/delete/${id}`;
+    return this.http.delete<Smartphone>(url);
+  }
 
   errorManager(error: HttpErrorResponse){
     let errorMesagge='';
