@@ -1,1 +1,143 @@
-<p>editar-smartphone works!</p>
+<div class="container">
+    <h2>Editar Smartphone</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card-body">
+                <form [formGroup]="smartphoneForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del smartphone:</label>
+                        <input type="text" class="form-control" formControlName="nombre"/>
+                        <!--Mensaje de error de validación-->
+                        <div style="color: red;" *ngIf="sent && myForm['nombre'].errors?.['required']">
+                            Este campo es obligatorio
+                        </div>
+                        <!--Mensaje de error de validación 2-->
+                        <div style="color: red;" *ngIf="sent && myForm['nombre'].errors?.['pattern']">
+                            Solo se admiten números y letras
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="marca">Marca:</label>
+                        <select class="custom-select form-control" (change)="updateMarca($event.target.value)" formControlName="marca">
+                            <option value="">Selecciona una marca...</option>
+                            <option *ngFor="let smartphone of smartphoneMarca" value="{{marca}}">{{marca}}</option>
+                        </select>
+                        <!--Mensaje de error de validación-->
+                        <div style="color: red;" *ngIf="sent && myForm['marca'].errors?.['required']">
+                            Debes seleccionar una marca
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="modelo">Modelo:</label>
+                        <input type="text" class="form-control" formControlName="modelo"/>
+                        <!--Mensaje de error de validación-->
+                        <div style="color: red;" *ngIf="sent && myForm['modelo'].errors?.['required']">
+                            Este campo es obligatorio
+                        </div>
+                        <!--Mensaje de error de validación 2-->
+                        <div style="color: red;" *ngIf="sent && myForm['modelo'].errors?.['pattern']">
+                            El modelo no es válido
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="color">Color:</label>
+                        <input type="text" class="form-control" formControlName="color"/>
+                        <!--Mensaje de error de validación-->
+                        <div style="color: red;" *ngIf="sent && myForm['color'].errors?.['required']">
+                            Este campo es obligatorio
+                        </div>
+                        <!--Mensaje de error de validación 2-->
+                        <div style="color: red;" *ngIf="sent && myForm['color'].errors?.['pattern']">
+                            Solo se admiten letras
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="memoriaRAM">Memoria RAM:</label>
+                        <select class="custom-select form-control" (change)="updateMemoria($event.target.value)" formControlName="memoriaRAM">
+                            <option value="">Selecciona la memoria RAM del dispositivo...</option>
+                            <option *ngFor="let smartphone of smartphoneMemoriaRAM" value="{{memoriaRAM}}">{{memoriaRAM}}</option>
+                        </select>
+                        <div style="color: red;" *ngIf="sent && myForm['memoriaRAM'].errors?.['required']">
+                            Debes seleccionar una opción
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="almacenamiento">Almacenamiento:</label>
+                        <select class="custom-select form-control" (change)="updateAlmacenamiento($event.target.value)" formControlName="almacenamiento">
+                            <option value="">Selecciona la capacidad de almacenamiento del dispositivo...</option>
+                            <option *ngFor="let smartphone of smartphoneAlmacenamiento" value="{{almacenamiento}}">{{almacenamiento}}</option>
+                        </select>
+                        <div style="color: red;" *ngIf="sent && myForm['almacenamiento'].errors?.['required']">
+                            Debes seleccionar una opción
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="sistemaOperativo">Sistema Operativo:</label>
+                        <select class="custom-select form-control" (change)="updateSO($event.target.value)" formControlName="sistemaOperativo">
+                            <option value="">Selecciona el sistema operativo del dispositivo...</option>
+                            <option *ngFor="let smartphone of smartphoneSO" value="{{sistemaOperativo}}">{{sistemaOperativo}}</option>
+                        </select>
+                        <div style="color: red;" *ngIf="sent && myForm['sistemaOperativo'].errors?.['required']">
+                            Debes seleccionar un sistema operativo
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="procesador">Tipo de procesador:</label>
+                        <select class="custom-select form-control" (change)="updateProcesador($event.target.value)" formControlName="procesador">
+                            <option value="">Selecciona el tipo de procesador del dispositivo...</option>
+                            <option *ngFor="let smartphone of smartphoneProcesador" value="{{procesador}}">{{procesador}}</option>
+                        </select>
+                        <div style="color: red;" *ngIf="sent && myForm['procesador'].errors?.['required']">
+                            Debes seleccionar un procesador
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="tasaDeRefresco">Tasa de refresco de la pantalla:</label>
+                        <select class="custom-select form-control" (change)="updateHz($event.target.value)" formControlName="tasaDeRefresco">
+                            <option value="">Selecciona la tasa de refresco de la pantalla...</option>
+                            <option *ngFor="let smartphone of smartphoneHz" value="{{tasaDeRefresco}}">{{tasaDeRefresco}}</option>
+                        </select>
+                        <div style="color: red;" *ngIf="sent && myForm['tasaDeRefresco'].errors?.['required']">
+                            Debes seleccionar una opción
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">
+                            Guardar cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

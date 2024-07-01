@@ -71,30 +71,35 @@ export class AgregarSmartphoneComponent implements OnInit {
     });
   }
 
+  // metodo para asignar la memoria RAM seleccionada por el usuario
   updateMemoria(d: string){
     this.smartphoneForm.get('memoriaRAM')?.setValue(d, {
       onlySelf:true
     });
   }
-
+  
+  // metodo para asignar la capacidad de almacenamiento seleccionad por el usuario
   updateAlmacenamiento(d: string){
     this.smartphoneForm.get('almacenamiento')?.setValue(d, {
       onlySelf:true
     });
   }
 
+  // metodo para asignar el sistema operativo seleccionado por el usuario
   updateSO(d: string){
     this.smartphoneForm.get('sistemaOperativo')?.setValue(d, {
       onlySelf:true
     });
   }
 
+  // metodo para asignar el tipo de procesador seleccionado por el usuario
   updateProcesador(d: string){
     this.smartphoneForm.get('procesador')?.setValue(d, {
       onlySelf:true
     });
   }
 
+  // metodo para asignar la tasa de refresco de la pantalla seleccionada por el usuario
   updateHz(d: string){
     this.smartphoneForm.get('tasaRefresco')?.setValue(d, {
       onlySelf:true
