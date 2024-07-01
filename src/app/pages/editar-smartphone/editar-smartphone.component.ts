@@ -167,7 +167,7 @@ export class EditarSmartphoneComponent implements OnInit {
         this.smartphoneService.updateSmartphone(id,this.smartphoneForm.value)
         .subscribe({
           complete: () => {
-            this.router.navigateByUrl('listar-empleados');
+            this.router.navigateByUrl('listar-smartphones');
             console.log('Actualización realizada');
           },
           error: (e) => {

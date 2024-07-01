@@ -9,21 +9,20 @@ import { SmartphoneService } from '../../services/smartphone.service';
 })
 export class ListarSmartphonesComponent  implements OnInit{
 
-  smartphones:any []= [];
+  smartphones: any[] = [];
 
-  constructor( private smartphoneService: SmartphoneService) {}
+  constructor(private smartphoneService: SmartphoneService) {
+  }
 
   //Obtener Smartphone desde el OnInit
   ngOnInit() {
     this.smartphoneService.getSmartphones()
     .subscribe((data:any)=>{
       this.smartphones=data;
+    }, error => {
+      console.error('Error al obtener los smartphones: ',error);
     });
-    
   }
-
-  
-
 
   //Método para eliminar Smartphone
   eliminarSmartphone(smartphone: any, index:number){

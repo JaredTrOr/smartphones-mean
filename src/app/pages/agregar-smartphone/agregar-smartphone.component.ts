@@ -120,7 +120,7 @@ export class AgregarSmartphoneComponent implements OnInit {
         complete: () =>{
           console.log('Se agregó un empleado')
           this.ngZone.run(()=>{
-            this.router.navigateByUrl('/listar-empleados');
+            this.router.navigateByUrl('/listar-smartphones');
             console.log('Actualización de smartphone');
           });
         },
