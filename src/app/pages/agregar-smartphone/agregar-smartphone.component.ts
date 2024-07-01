@@ -13,13 +13,12 @@ export class AgregarSmartphoneComponent implements OnInit {
   // propiedades
   smartphoneForm!: FormGroup;
   sent = false;
-  smartphoneMarca: any = ['Apple', 'Samsung', 'Huawei', 'Xiaomi', 'OnePlus', 'Realme', 'Oppo', 'Vivo', 'Motorola'];
-  smartphoneMemoriaRAM: any = ['4GB', '6GB', '8GB', '12GB'];
-  smartphoneAlmacenamiento: any = ['64GB', '128GB', '256GB', '512GB', '1TB'];
-  smartphoneSO: any = ['Android', '¡OS'];
-  smartphoneProcesador: any = ['Qualcomm Snapdragon', 'Samsung Exynos', 'Huawei Kirin', 'MediaTek', 'Apple A-Series', 'Google Tensor'];
-  smartphoneHz: any = ['60Hhz', '90Hz', '120Hz', '144Hz'];
-
+  smartphoneMarca: string[] = ['Apple', 'Samsung', 'Huawei', 'Xiaomi', 'OnePlus', 'Google', 'Realme', 'Oppo', 'Vivo', 'Motorola', 'Otro'];
+  smartphoneMemoriaRAM: string[] = ['4GB', '6GB', '8GB', '12GB'];
+  smartphoneAlmacenamiento: string[] = ['64GB', '128GB', '256GB', '512GB', '1TB'];
+  smartphoneSO: string[] = ['Android', '¡OS'];
+  smartphoneProcesador: string[] = ['Qualcomm Snapdragon', 'Samsung Exynos', 'Huawei Kirin', 'MediaTek', 'Apple A-Series', 'Google Tensor'];
+  smartphoneHz: string[] = ['60Hhz', '90Hz', '120Hz', '144Hz'];
 
   constructor(
     public formBuilder: FormBuilder,

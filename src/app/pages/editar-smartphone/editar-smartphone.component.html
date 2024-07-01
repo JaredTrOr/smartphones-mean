@@ -22,9 +22,9 @@
 
                     <div class="form-group">
                         <label for="marca">Marca:</label>
-                        <select class="custom-select form-control" (change)="updateMarca($event.target.value)" formControlName="marca">
+                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('marca')?.value" (ngModelChange)="updateMarca($event)" formControlName="marca">
                             <option value="">Selecciona una marca...</option>
-                            <option *ngFor="let smartphone of smartphoneMarca" value="{{marca}}">{{marca}}</option>
+                            <option *ngFor="let marca of smartphoneMarca" [value]="marca">{{marca}}</option>
                         </select>
                         <!--Mensaje de error de validación-->
                         <div style="color: red;" *ngIf="sent && myForm['marca'].errors?.['required']">
@@ -66,9 +66,9 @@
 
                     <div class="form-group">
                         <label for="memoriaRAM">Memoria RAM:</label>
-                        <select class="custom-select form-control" (change)="updateMemoria($event.target.value)" formControlName="memoriaRAM">
+                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('memoriaRAM')?.value" (ngModelChange)="updateMemoria($event)" formControlName="memoriaRAM">
                             <option value="">Selecciona la memoria RAM del dispositivo...</option>
-                            <option *ngFor="let smartphone of smartphoneMemoriaRAM" value="{{memoriaRAM}}">{{memoriaRAM}}</option>
+                            <option *ngFor="let memoriaRAM of smartphoneMemoriaRAM" [value]="memoriaRAM">{{memoriaRAM}}</option>
                         </select>
                         <div style="color: red;" *ngIf="sent && myForm['memoriaRAM'].errors?.['required']">
                             Debes seleccionar una opción
@@ -79,9 +79,9 @@
 
                     <div class="form-group">
                         <label for="almacenamiento">Almacenamiento:</label>
-                        <select class="custom-select form-control" (change)="updateAlmacenamiento($event.target.value)" formControlName="almacenamiento">
+                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('almacenamiento')?.value" (ngModelChange)="updateAlmacenamiento($event)" formControlName="almacenamiento">
                             <option value="">Selecciona la capacidad de almacenamiento del dispositivo...</option>
-                            <option *ngFor="let smartphone of smartphoneAlmacenamiento" value="{{almacenamiento}}">{{almacenamiento}}</option>
+                            <option *ngFor="let almacenamiento of smartphoneAlmacenamiento" [value]="almacenamiento">{{almacenamiento}}</option>
                         </select>
                         <div style="color: red;" *ngIf="sent && myForm['almacenamiento'].errors?.['required']">
                             Debes seleccionar una opción
@@ -92,9 +92,9 @@
 
                     <div class="form-group">
                         <label for="sistemaOperativo">Sistema Operativo:</label>
-                        <select class="custom-select form-control" (change)="updateSO($event.target.value)" formControlName="sistemaOperativo">
+                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('sistemaOperativo')?.value" (ngModelChange)="updateSO($event)" formControlName="sistemaOperativo">
                             <option value="">Selecciona el sistema operativo del dispositivo...</option>
-                            <option *ngFor="let smartphone of smartphoneSO" value="{{sistemaOperativo}}">{{sistemaOperativo}}</option>
+                            <option *ngFor="let sistemaOperativo of smartphoneSO" [value]="sistemaOperativo">{{sistemaOperativo}}</option>
                         </select>
                         <div style="color: red;" *ngIf="sent && myForm['sistemaOperativo'].errors?.['required']">
                             Debes seleccionar un sistema operativo
@@ -105,9 +105,9 @@
 
                     <div class="form-group">
                         <label for="procesador">Tipo de procesador:</label>
-                        <select class="custom-select form-control" (change)="updateProcesador($event.target.value)" formControlName="procesador">
+                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('procesador')?.value" (ngModelChange)="updateProcesador($event)" formControlName="procesador">
                             <option value="">Selecciona el tipo de procesador del dispositivo...</option>
-                            <option *ngFor="let smartphone of smartphoneProcesador" value="{{procesador}}">{{procesador}}</option>
+                            <option *ngFor="let procesador of smartphoneProcesador" [value]="procesador">{{procesador}}</option>
                         </select>
                         <div style="color: red;" *ngIf="sent && myForm['procesador'].errors?.['required']">
                             Debes seleccionar un procesador
@@ -118,9 +118,9 @@
 
                     <div class="form-group">
                         <label for="tasaDeRefresco">Tasa de refresco de la pantalla:</label>
-                        <select class="custom-select form-control" (change)="updateHz($event.target.value)" formControlName="tasaDeRefresco">
+                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('tasaDeRefresco')?.value" (ngModelChange)="updateHz($event)" formControlName="tasaDeRefresco">
                             <option value="">Selecciona la tasa de refresco de la pantalla...</option>
-                            <option *ngFor="let smartphone of smartphoneHz" value="{{tasaDeRefresco}}">{{tasaDeRefresco}}</option>
+                            <option *ngFor="let tasaDeRefresco of smartphoneHz" [value]="tasaDeRefresco">{{tasaDeRefresco}}</option>
                         </select>
                         <div style="color: red;" *ngIf="sent && myForm['tasaDeRefresco'].errors?.['required']">
                             Debes seleccionar una opción
