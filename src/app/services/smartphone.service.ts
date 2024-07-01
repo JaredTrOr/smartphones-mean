@@ -25,14 +25,14 @@ export class SmartphoneService {
 
   //Método para obtener todos los Smartphones
   getSmartphones(){
-    let url=`${this.baseUri}/get-smatphones`;
+    let url=`${this.baseUri}/get-smartphones`;
     return this.http.get(url);
   }
 
    //Método para obtener Smartphone por id
-  getSmartphone(id: string): Observable<Smartphone> {
+  getSmartphone(id: string): Observable<any> {
     let url=`${this.baseUri}/get-smartphone-id/${id}`;
-    return this.http.get<Smartphone>(url)
+    return this.http.get(url)
   }
 
 

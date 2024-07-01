@@ -9,7 +9,7 @@ import { SmartphoneService } from '../../services/smartphone.service';
 })
 export class ListarSmartphonesComponent  implements OnInit{
 
-  smartphones: any[] = [];
+  smartphones: Smartphone[] = [];
 
   constructor(private smartphoneService: SmartphoneService) {
   }
@@ -18,16 +18,16 @@ export class ListarSmartphonesComponent  implements OnInit{
   ngOnInit() {
     this.smartphoneService.getSmartphones()
     .subscribe((data:any)=>{
-      this.smartphones=data;
+      this.smartphones=data.data;
     }, error => {
       console.error('Error al obtener los smartphones: ',error);
     });
   }
 
   //Método para eliminar Smartphone
-  eliminarSmartphone(smartphone: any, index:number){
+  eliminarSmartphone(smartphone: Smartphone, index:number){
     if(window.confirm("¿Seguro que desea Eliminar el Smartphone?")){
-      this.smartphoneService.deleteSmartphone(smartphone._id)
+      this.smartphoneService.deleteSmartphone(smartphone._id!)
       .subscribe((data)=>{
         this.smartphones.splice(index,1)
       })

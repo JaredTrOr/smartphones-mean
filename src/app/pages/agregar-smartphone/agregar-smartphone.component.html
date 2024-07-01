@@ -22,7 +22,7 @@
 
                     <div class="form-group">
                         <label for="marca">Marca:</label>
-                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('marca')?.value" (ngModelChange)="updateMarca($event)" formControlName="marca">
+                        <select class="custom-select form-control" formControlName="marca">
                             <option value="">Selecciona una marca...</option>
                             <option *ngFor="let marca of smartphoneMarca" [value]="marca">{{marca}}</option>
                         </select>
@@ -66,7 +66,7 @@
 
                     <div class="form-group">
                         <label for="memoriaRAM">Memoria RAM:</label>
-                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('memoriaRAM')?.value" (ngModelChange)="updateMemoria($event)" formControlName="memoriaRAM">
+                        <select class="custom-select form-control" formControlName="memoriaRAM">
                             <option value="">Selecciona la memoria RAM del dispositivo...</option>
                             <option *ngFor="let memoriaRAM of smartphoneMemoriaRAM" [value]="memoriaRAM">{{memoriaRAM}}</option>
                         </select>
@@ -79,7 +79,7 @@
 
                     <div class="form-group">
                         <label for="almacenamiento">Almacenamiento:</label>
-                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('almacenamiento')?.value" (ngModelChange)="updateAlmacenamiento($event)" formControlName="almacenamiento">
+                        <select class="custom-select form-control" formControlName="almacenamiento">
                             <option value="">Selecciona la capacidad de almacenamiento del dispositivo...</option>
                             <option *ngFor="let almacenamiento of smartphoneAlmacenamiento" [value]="almacenamiento">{{almacenamiento}}</option>
                         </select>
@@ -92,7 +92,7 @@
 
                     <div class="form-group">
                         <label for="sistemaOperativo">Sistema Operativo:</label>
-                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('sistemaOperativo')?.value" (ngModelChange)="updateSO($event)" formControlName="sistemaOperativo">
+                        <select class="custom-select form-control" formControlName="sistemaOperativo">
                             <option value="">Selecciona el sistema operativo del dispositivo...</option>
                             <option *ngFor="let sistemaOperativo of smartphoneSO" [value]="sistemaOperativo">{{sistemaOperativo}}</option>
                         </select>
@@ -105,7 +105,7 @@
 
                     <div class="form-group">
                         <label for="procesador">Tipo de procesador:</label>
-                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('procesador')?.value" (ngModelChange)="updateProcesador($event)" formControlName="procesador">
+                        <select class="custom-select form-control" formControlName="procesador">
                             <option value="">Selecciona el tipo de procesador del dispositivo...</option>
                             <option *ngFor="let procesador of smartphoneProcesador" [value]="procesador">{{procesador}}</option>
                         </select>
@@ -118,7 +118,7 @@
 
                     <div class="form-group">
                         <label for="tasaDeRefresco">Tasa de refresco de la pantalla:</label>
-                        <select class="custom-select form-control" [ngModel]="smartphoneForm.get('tasaDeRefresco')?.value" (ngModelChange)="updateHz($event)" formControlName="tasaDeRefresco">
+                        <select class="custom-select form-control" formControlName="tasaDeRefresco">
                             <option value="">Selecciona la tasa de refresco de la pantalla...</option>
                             <option *ngFor="let tasaDeRefresco of smartphoneHz" [value]="tasaDeRefresco">{{tasaDeRefresco}}</option>
                         </select>

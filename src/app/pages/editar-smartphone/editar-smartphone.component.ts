@@ -18,7 +18,7 @@ export class EditarSmartphoneComponent implements OnInit {
   smartphoneMemoriaRAM: string[] = ['4GB', '6GB', '8GB', '12GB'];
   smartphoneAlmacenamiento: string[] = ['64GB', '128GB', '256GB', '512GB', '1TB'];
   smartphoneSO: string[] = ['Android', '¡OS'];
-  smartphoneProcesador: string[] = ['Qualcomm Snapdragon', 'Samsung Exynos', 'Huawei Kirin', 'MediaTek', 'Apple A-Series', 'Google Tensor'];
+  smartphoneProcesador: string[] = ['Qualcomm Snapdragon', 'Samsung Exynos', 'Huawei Kirin', 'MediaTek', 'Apple A-Series', 'Google Tensor', 'Otro'];
   smartphoneHz: string[] = ['60Hhz', '90Hz', '120Hz', '144Hz'];
 
   smartphoneData!: Smartphone[];
@@ -33,31 +33,8 @@ export class EditarSmartphoneComponent implements OnInit {
   ngOnInit(): void {
     this.mainForm();
     let id = this.actRoute.snapshot.paramMap.get('id');
-    this.smartphoneForm = this.formBuilder.group({
-      nombre: ['',
-        [
-          Validators.required,
-          Validators.pattern('^[a-zA-Z0-9 ]+$')
-        ]
-      ],
-      marca: ['',[Validators.required]],
-      modelo: ['',
-        [
-          Validators.required,
-          Validators.pattern('^[a-zA-Z0-9 ]+$')
-        ]
-      ],
-      color: ['',
-        [
-          Validators.required,
-          Validators.pattern('^[a-zA-Z]+$')
-        ]
-      ],
-      memoriaRAM: ['',[Validators.required]],
-      almacenamiento: ['',[Validators.required]],
-      sistemaOperativo: ['',[Validators.required]],
-      procesador: ['',[Validators.required]],
-      tasaDeRefresco: ['',[Validators.required]]
+    this.smartphoneService.getSmartphone(id!).subscribe(data => {
+      this.smartphoneForm.patchValue(data.data)
     });
   }
 
@@ -88,48 +65,6 @@ export class EditarSmartphoneComponent implements OnInit {
       sistemaOperativo: ['',[Validators.required]],
       procesador: ['',[Validators.required]],
       tasaDeRefresco: ['',[Validators.required]]
-    });
-  }
-
-  // metodo para asignar la marca seleccionada por el usuario
-  updateMarca(d: string){
-    this.smartphoneForm.get('marca')?.setValue(d,{
-      onlySelf:true,
-    });
-  }
-
-  // metodo para asignar la memoria RAM seleccionada por el usuario
-  updateMemoria(d: string){
-    this.smartphoneForm.get('memoriaRAM')?.setValue(d, {
-      onlySelf:true
-    });
-  }
-  
-  // metodo para asignar la capacidad de almacenamiento seleccionad por el usuario
-  updateAlmacenamiento(d: string){
-    this.smartphoneForm.get('almacenamiento')?.setValue(d, {
-      onlySelf:true
-    });
-  }
-
-  // metodo para asignar el sistema operativo seleccionado por el usuario
-  updateSO(d: string){
-    this.smartphoneForm.get('sistemaOperativo')?.setValue(d, {
-      onlySelf:true
-    });
-  }
-
-  // metodo para asignar el tipo de procesador seleccionado por el usuario
-  updateProcesador(d: string){
-    this.smartphoneForm.get('procesador')?.setValue(d, {
-      onlySelf:true
-    });
-  }
-
-  // metodo para asignar la tasa de refresco de la pantalla seleccionada por el usuario
-  updateHz(d: string){
-    this.smartphoneForm.get('tasaRefresco')?.setValue(d, {
-      onlySelf:true
     });
   }
 
