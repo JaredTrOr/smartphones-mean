@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Smartphone } from '../models/Smartphone';
+import { Smartphone } from '../models/smartphone';
 import { Observable, catchError, throwError } from 'rxjs';
 
 
