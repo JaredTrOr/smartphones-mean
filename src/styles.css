@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+:root {
+    --color-btn-agregar: #8DECB4;
+    --color-btn-eliminar: #C40C0C;
+    --color-btn-editar: #5755FE;
+}
+
+.btn-custom {
+    padding: 1rem; 
+    border: none;
+    font-weight: 600;
+}
+
+.btn-agregar {
+    background-color: var(--color-btn-agregar);
+}
+
+.btn-editar {
+    color: white;
+    background-color: var(--color-btn-editar);
+}
+
+.btn-eliminar {
+    background-color: var(--color-btn-eliminar);
+    color: white;
+}
+
+.input {
+    padding: 0.7rem;
+    border: 1px solid lightgray;
+    border-radius: 1px;
+    margin-top: 10px;
+}

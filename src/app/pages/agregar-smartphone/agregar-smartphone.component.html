@@ -11,7 +11,7 @@
                         <div class="col-lg-4 d-flex flex-column gap-5">
                             <div class="form-group">
                                 <label for="nombre">Nombre del smartphone:</label>
-                                <input type="text" class="form-control" formControlName="nombre"/>
+                                <input type="text" class="form-control input" formControlName="nombre"/>
                                 <!--Mensaje de error de validación-->
                                 <div style="color: red;" *ngIf="sent && myForm['nombre'].errors?.['required']">
                                     Este campo es obligatorio
@@ -24,7 +24,7 @@
                 
                             <div class="form-group">
                                 <label for="marca">Marca:</label>
-                                <select class="custom-select form-control" formControlName="marca">
+                                <select class="custom-select form-control input" formControlName="marca">
                                     <option value="">Selecciona una marca...</option>
                                     <option *ngFor="let marca of smartphoneMarca" [value]="marca">{{marca}}</option>
                                 </select>
@@ -36,7 +36,7 @@
                 
                             <div class="form-group">
                                 <label for="modelo">Modelo:</label>
-                                <input type="text" class="form-control" formControlName="modelo"/>
+                                <input type="text" class="form-control input" formControlName="modelo"/>
                                 <!--Mensaje de error de validación-->
                                 <div style="color: red;" *ngIf="sent && myForm['modelo'].errors?.['required']">
                                     Este campo es obligatorio
@@ -51,7 +51,7 @@
                         <div class="col-lg-4 d-flex flex-column gap-5">
                             <div class="form-group">
                                 <label for="color">Color:</label>
-                                <input type="text" class="form-control" formControlName="color"/>
+                                <input type="text" class="form-control input" formControlName="color"/>
                                 <!--Mensaje de error de validación-->
                                 <div style="color: red;" *ngIf="sent && myForm['color'].errors?.['required']">
                                     Este campo es obligatorio
@@ -65,8 +65,8 @@
         
                             <div class="form-group">
                                 <label for="memoriaRAM">Memoria RAM:</label>
-                                <select class="custom-select form-control" formControlName="memoriaRAM">
-                                    <option value="">Selecciona la memoria RAM del dispositivo...</option>
+                                <select class="custom-select form-control input" formControlName="memoriaRAM">
+                                    <option value="">Selecciona la memoria RAM</option>
                                     <option *ngFor="let memoriaRAM of smartphoneMemoriaRAM" [value]="memoriaRAM">{{memoriaRAM}}</option>
                                 </select>
                                 <div style="color: red;" *ngIf="sent && myForm['memoriaRAM'].errors?.['required']">
@@ -77,8 +77,8 @@
         
                             <div class="form-group">
                                 <label for="almacenamiento">Almacenamiento:</label>
-                                <select class="custom-select form-control" formControlName="almacenamiento">
-                                    <option value="">Selecciona la capacidad de almacenamiento del dispositivo...</option>
+                                <select class="custom-select form-control input" formControlName="almacenamiento">
+                                    <option value="">Selecciona la capacidad de almacenamiento</option>
                                     <option *ngFor="let almacenamiento of smartphoneAlmacenamiento" [value]="almacenamiento">{{almacenamiento}}</option>
                                 </select>
                                 <div style="color: red;" *ngIf="sent && myForm['almacenamiento'].errors?.['required']">
@@ -90,7 +90,7 @@
                         <div class="col-lg-4 d-flex flex-column gap-5">
                             <div class="form-group">
                                 <label for="sistemaOperativo">Sistema Operativo:</label>
-                                <select class="custom-select form-control" formControlName="sistemaOperativo">
+                                <select class="custom-select form-control input" formControlName="sistemaOperativo">
                                     <option value="">Selecciona el sistema operativo</option>
                                     <option *ngFor="let sistemaOperativo of smartphoneSO" [value]="sistemaOperativo">{{sistemaOperativo}}</option>
                                 </select>
@@ -102,7 +102,7 @@
         
                             <div class="form-group">
                                 <label for="procesador">Tipo de procesador:</label>
-                                <select class="custom-select form-control" formControlName="procesador">
+                                <select class="custom-select form-control input" formControlName="procesador">
                                     <option value="">Selecciona el tipo de procesador</option>
                                     <option *ngFor="let procesador of smartphoneProcesador" [value]="procesador">{{procesador}}</option>
                                 </select>
@@ -114,7 +114,7 @@
         
                             <div class="form-group">
                                 <label for="tasaDeRefresco">Tasa de refresco de la pantalla:</label>
-                                <select class="custom-select form-control" formControlName="tasaDeRefresco">
+                                <select class="custom-select form-control input" formControlName="tasaDeRefresco">
                                     <option value="">Selecciona la tasa de refresco de la pantalla</option>
                                     <option *ngFor="let tasaDeRefresco of smartphoneHz" [value]="tasaDeRefresco">{{tasaDeRefresco}}</option>
                                 </select>
@@ -126,7 +126,7 @@
                     </div>
                     
                     <div class="form-group mt-5">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">
+                        <button class="btn-custom btn-agregar" type="submit">
                             Agregar smartphone
                         </button>
                     </div>

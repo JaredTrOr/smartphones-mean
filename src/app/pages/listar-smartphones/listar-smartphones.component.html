@@ -1,49 +1,57 @@
 <div class="container mt-4">
     <h2>Smartphones</h2>
-    <p *ngIf="smartphones.length <= 0" class="text-center"> 
-        No hay Smartphones
+
+    <!--CARGANDO-->
+    <p *ngIf="cargando" class="text-center mt-5"> 
+        Cargando smartphones...
     </p>
-    <table *ngIf="smartphones.length > 0" class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Módelo</th>
-                <th scope="col">Color</th>
-                <th scope="col">Memoria RAM</th>
-                <th scope="col">Almacenamiento</th>
-                <th scope="col">Sistema Operativo</th>
-                <th scope="col">Procesador</th>
-                <th scope="col">Tasa de Refresco</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let smartphone of smartphones; let i = index">
+    
+    <!--SI NO HAY SMARTPHONES-->
+    <p *ngIf="!haySmartphones" class="text-center mt-5"> 
+        NO HAY SMARTPHONES DISPONIBLES :(
+    </p>
 
-            <td>{{smartphone._id}}</td>
-            <td>{{smartphone.nombre}}</td>
-            <td>{{smartphone.marca}}</td>
-            <td>{{smartphone.modelo}}</td>
-            <td>{{smartphone.color}}</td>
-            <td>{{smartphone.memoriaRAM}}</td>
-            <td>{{smartphone.almacenamiento}}</td>
-            <td>{{smartphone.sistemaOperativo}}</td>
-            <td>{{smartphone.procesador}}</td>
-            <td>{{smartphone.tasaDeRefresco}}</td>
-            <td>
-                <span [routerLink]="['/editar-smartphone/',smartphone._id]">
-                    <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                </span>
-            </td>
-            <td>
-                <span (click)="eliminarSmartphone(smartphone,i)">
-                    <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                </span>
-            </td>
-            </tr>
-            
-
-        </tbody>
-    </table>
+    <!--SI HAY SMARTPHONES-->
+    <div class="table-container">
+        <table *ngIf="smartphones.length" class="mt-4 table table-striped">
+            <thead>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Módelo</th>
+                    <th>Color</th>
+                    <th>Memoria RAM</th>
+                    <th>Almacenamiento</th>
+                    <th>Sistema Operativo</th>
+                    <th>Procesador</th>
+                    <th>Tasa de Refresco</th>
+                    <th>Operaciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let smartphone of smartphones; let i = index">
+    
+                <td>{{smartphone.nombre}}</td>
+                <td>{{smartphone.marca}}</td>
+                <td>{{smartphone.modelo}}</td>
+                <td>{{smartphone.color}}</td>
+                <td>{{smartphone.memoriaRAM}}</td>
+                <td>{{smartphone.almacenamiento}}</td>
+                <td>{{smartphone.sistemaOperativo}}</td>
+                <td>{{smartphone.procesador}}</td>
+                <td>{{smartphone.tasaDeRefresco}}</td>
+                <td>
+                    <span [routerLink]="['/editar-smartphone/',smartphone._id]">
+                        <button type="button" class="btn-custom btn-editar">Editar</button>
+                    </span>
+                </td>
+                <td>
+                    <span (click)="eliminarSmartphone(smartphone,i)">
+                        <button type="button" class="btn-custom btn-eliminar">Eliminar</button>
+                    </span>
+                </td>
+                </tr>
+                
+    
+            </tbody>
+        </table>
+    </div>
 </div>

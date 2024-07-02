@@ -6,9 +6,9 @@ import { EditarSmartphoneComponent } from './pages/editar-smartphone/editar-smar
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'agregar-smartphone'},
-  {path: 'agregar-smartphone', component: AgregarSmartphoneComponent},
-  {path: 'listar-smartphones', component: ListarSmartphonesComponent},
-  {path: 'editar-smartphone/:id', component: EditarSmartphoneComponent}
+  {path: 'agregar-smartphone', title: 'Agreagar smartphone', component: AgregarSmartphoneComponent},
+  {path: 'listar-smartphones' ,title: 'Listar smartphones',component: ListarSmartphonesComponent},
+  {path: 'editar-smartphone/:id', title: 'Editar smarphone' ,component: EditarSmartphoneComponent}
 ];
 
 @NgModule({

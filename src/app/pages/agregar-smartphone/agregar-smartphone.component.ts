@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SmartphoneService } from '../../services/smartphone.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-smartphone',
@@ -79,7 +80,7 @@ export class AgregarSmartphoneComponent implements OnInit {
           console.log('Se agregó un empleado')
           this.ngZone.run(()=>{
             this.router.navigateByUrl('/listar-smartphones');
-            console.log('Actualización de smartphone');
+            Swal.fire('El smartphone se agregó exitosamente', '', 'success');
           });
         },
         error: (err) => {

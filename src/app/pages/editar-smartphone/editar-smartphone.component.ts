@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Smartphone } from '../../models/Smartphone';
 import { SmartphoneService } from '../../services/smartphone.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-smartphone',
@@ -96,24 +97,32 @@ export class EditarSmartphoneComponent implements OnInit {
     if(!this.smartphoneForm.valid){
       return false;
     }else{
-      if(window.confirm('¿Estás seguro que lo deseas modificar?')){
-        let id = this.actRoute.snapshot.paramMap.get('id');
-        if(id !== null) {
-        this.smartphoneService.updateSmartphone(id,this.smartphoneForm.value)
-        .subscribe({
-          complete: () => {
-            this.router.navigateByUrl('listar-smartphones');
-            console.log('Actualización realizada');
-          },
-          error: (e) => {
-            console.log(e);
+      Swal.fire({
+        title: "¿Seguro que quieres modificar este smartphone?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: "Si, modificar",
+        denyButtonText: `Cancelar`
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+          let id = this.actRoute.snapshot.paramMap.get('id');
+          if (id) {
+            this.smartphoneService.updateSmartphone(id,this.smartphoneForm.value)
+            .subscribe({
+              complete: () => {
+                Swal.fire('La modificación se realizó con éxito', '', 'success');
+                this.router.navigateByUrl('listar-smartphones');
+              },
+              error: (e) => {
+                console.log(e);
+              }
+            });
           }
-        });
-      } else {
-        console.error('El ID lo esta tomando como nulo');
-        return false;
+
         }
-      }
+      });
+
     }
   }
 

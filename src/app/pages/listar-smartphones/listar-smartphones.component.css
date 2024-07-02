@@ -1,0 +1,8 @@
+td {
+    padding: 1rem;
+}
+
+.table-container {
+    height: 75vh;
+    overflow-y: scroll;
+}
